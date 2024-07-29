@@ -24,9 +24,17 @@ const loginUser = async (req, res) => {
 
         res.status(200).json({ user_id: user._id, email: user.email });
     } catch (error) {
-        res.status(400).json({ error: error.message });
+        // Log the error for debugging purposes
+        console.error('Login error:', error);
+
+        // Provide more context in the error response
+        res.status(400).json({ 
+            error: error.message,
+            context: 'Login failed. Please check your email and password and try again.'
+        });
     }
 };
+
 
 // Signup user
 const signupUser = async (req, res) => {
