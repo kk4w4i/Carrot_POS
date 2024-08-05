@@ -27,12 +27,12 @@ const Hero = () => {
                 </div>
             </div>
             <div className='flex w-full h-screen overflow-visible relative'>
-                <img className="absolute top-[-25vh] left-[-6vw] h-[400px] object-cover" src={BlackPen}/>
-                <img className="absolute top-[-30vh] left-[1vw] h-[860px] object-cover" src={Receipt}/>
-                <img className="absolute top-[-20vh] left-[15vw] h-[500px] object-cover z-[2]" src={Carrot}/>
+                <img className="absolute top-[-30vh] left-[-9vw] h-[550px] object-cover z-[2]" src={BlackPen}/>
+                <img className="absolute top-[-30vh] left-[1vw] h-[860px] object-cover z-[1]" src={Receipt}/>
+                <img className="absolute top-[-25vh] left-[8vw] h-[700px] object-cover z-[2]" src={Carrot}/>
                 <img className="absolute top-[-15vh] left-[47vw] h-[400px] object-cover z-[1]" src={CreditCard}/>
                 <img className="absolute top-[-14vh] left-[63vw] h-[200px] object-cover" src={BarCode}/>
-                <img className="absolute top-[-35vh] left-[70vw] h-[800px] object-cover" src={PosTerminal}/>
+                <img className="absolute top-[-36vh] left-[68vw] h-[900px] object-cover" src={PosTerminal}/>
             </div>
         </div>
     )
