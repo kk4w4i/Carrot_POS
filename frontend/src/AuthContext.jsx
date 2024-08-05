@@ -19,7 +19,7 @@ export const AuthProvider = ({ children }) => {
     });
 
     if (response.ok) {
-      navigate('/');
+      navigate('/dashboard');
     }
   };
 

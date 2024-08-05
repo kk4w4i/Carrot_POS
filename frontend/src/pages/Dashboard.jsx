@@ -1,33 +1,28 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Button } from '@/components/ui/button';
+import React, { useState } from 'react';
+import SideNav from './components/SideNav';
+import Products from './Products';
+import Orders from './Orders';
+import Payments from './Payments';
+
+const TABS = ["Products", "Orders", "Payments"];
 
 function Dashboard() {
-  const navigate = useNavigate();
-
-  const handleLogout = async () => {
-    try {
-      const response = await fetch('http://localhost:8080/api/user/logout', {
-        method: 'POST',
-        credentials: 'include',
-      });
-
-      if (response.ok) {
-        navigate('/login');
-      } else {
-        console.error('Logout failed');
-      }
-    } catch (error) {
-      console.error('Error logging out:', error);
-    }
-  };
+  const [activeTab, setActiveTab] = useState(TABS[0]);
 
   return (
-    <div>
-      Dashboard
-      <Button onClick={handleLogout}>
-        Logout
-      </Button>
+    <div className='flex'>
+      <SideNav tabs={TABS} activeTab={activeTab} setActiveTab={setActiveTab}/>
+      <div>
+        {activeTab === "Products" &&
+          <Products/>
+        }
+        {activeTab === "Orders" &&
+          <Orders/>
+        }
+        {activeTab === "Payments" &&
+          <Payments/>
+        }
+      </div>
     </div>
   );
 }
