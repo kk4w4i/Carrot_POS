@@ -10,9 +10,9 @@ function Dashboard() {
   const [activeTab, setActiveTab] = useState(TABS[0]);
 
   return (
-    <div className='flex'>
+    <div className='flex w-full'>
       <SideNav tabs={TABS} activeTab={activeTab} setActiveTab={setActiveTab}/>
-      <div>
+      <div className='flex w-full'>
         {activeTab === "Products" &&
           <Products/>
         }

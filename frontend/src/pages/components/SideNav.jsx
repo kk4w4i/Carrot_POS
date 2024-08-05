@@ -4,7 +4,9 @@ import clsx from "clsx";
 import { useNavigate } from 'react-router-dom';
 import Logo from '../../assets/webp/Carrot_logo.webp';
 import { Button } from '@/components/ui/button';
-
+import { SvgButton } from "@/components/ui/svg-button";
+import { Cog } from '../../assets/svgs/svgs'
+ 
 const SideNav = ({ tabs, activeTab, setActiveTab }) => {
   const [hoveredTab, setHoveredTab] = useState(null);
   const navigate = useNavigate();
@@ -85,11 +87,15 @@ const SideNav = ({ tabs, activeTab, setActiveTab }) => {
         </div>
       </div>
       <div className='flex flex-col w-full justify-start items-start'>
+        <SvgButton
+            className="flex justify-center items-center gap-2 px-3"
+            stroke="#a3a3a3"
+            hoverStroke="#000000"
+        >
+            <Cog /> Settings
+        </SvgButton>
         <Button variant="ghost" className="text-neutral-400" onClick={handleLogout}>
-          Setting
-        </Button>
-        <Button variant="ghost" className="text-neutral-400">
-          Profile
+          Log out
         </Button>
       </div>
     </div>
