@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import { useAuth } from '../AuthContext';
 import { SignupForm } from './components/SignupForm';
 
 const Signup = () => {
+  const location = useLocation();
+  const heroEmail = location.state?.email || '';
+
   const [businessName, setBusinessName] = useState('');
   const [slug, setSlug] = useState('');
-  const [email, setEmail] = useState('');
+  const [email, setEmail] = useState(heroEmail); // Set initial email to heroEmail
   const [password, setPassword] = useState('');
   const { login } = useAuth();
 
@@ -40,6 +44,7 @@ const Signup = () => {
         setEmail={setEmail}
         setPassword={setPassword}
         handleSubmit={handleSubmit}
+        initialEmail={email}
       />
     </div>
   );

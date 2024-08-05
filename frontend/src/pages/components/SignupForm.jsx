@@ -8,15 +8,15 @@ import {
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
-export function SignupForm({ setBusinessName, setEmail, setSlug, setPassword, handleSubmit }) {
+export function SignupForm({ setBusinessName, setEmail, setSlug, setPassword, handleSubmit, initialEmail }) {
   return (
-    <Card className="w-[40%]">
+    <Card className="w-[30%]">
       <CardHeader>
-        <CardTitle className="text-xl">Sign Up</CardTitle>
+        <CardTitle className="text-xl">Sign Up to Carrot</CardTitle>
         <CardDescription>
-          Enter your information to create an account
+          Enter your business details to create your store
         </CardDescription>
       </CardHeader>
       <CardContent>
@@ -33,11 +33,15 @@ export function SignupForm({ setBusinessName, setEmail, setSlug, setPassword, ha
           <div className="grid gap-2">
             <Label htmlFor="slug">Slug Handle</Label>
             <Input 
+              className="flex justify-start items-start"
               id="slug" 
               placeholder="google" 
               required 
+              childPosition="start"
               onChange={(e) => setSlug(e.target.value)} 
-            />
+            >
+              /
+            </Input>
           </div>
           <div className="grid gap-2">
             <Label htmlFor="email">Email</Label>
@@ -46,6 +50,7 @@ export function SignupForm({ setBusinessName, setEmail, setSlug, setPassword, ha
               type="email"
               placeholder="m@example.com"
               required
+              value={initialEmail} // Set initial value to initialEmail
               onChange={(e) => setEmail(e.target.value)}
             />
           </div>
@@ -59,11 +64,11 @@ export function SignupForm({ setBusinessName, setEmail, setSlug, setPassword, ha
             />
           </div>
           <Button type="submit" className="w-full">
-            Create an account
+            Create!
           </Button>
         </form>
         <div className="mt-4 text-center text-sm">
-          Already have an account?{" "}
+          Already have a store setup in Carrot?{" "}
           <Link to="/login" className="underline">
             Sign in
           </Link>

@@ -1,19 +1,20 @@
-import * as React from "react"
+import * as React from "react";
+import { cn } from "@/lib/utils";
 
-import { cn } from "@/lib/utils"
-
-const Input = React.forwardRef(({ className, type, ...props }, ref) => {
+const Input = React.forwardRef(({ className, type, children, childPosition = "end", ...props }, ref) => {
   return (
-    (<input
-      type={type}
-      className={cn(
-        "flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50",
-        className
-      )}
-      ref={ref}
-      {...props} />)
+    <div className={cn("relative flex items-center rounded-md border border-input bg-background px-2 py-1 focus-within:ring-2 focus-within:ring-ring focus-within:ring-offset-2", className)}>
+      {childPosition === "start" && children}
+      <input
+        type={type}
+        className="flex w-full h-full py-1 bg-transparent text-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none disabled:cursor-not-allowed disabled:opacity-50"
+        ref={ref}
+        {...props}
+      />
+      {childPosition === "end" && children}
+    </div>
   );
-})
-Input.displayName = "Input"
+});
+Input.displayName = "Input";
 
-export { Input }
+export { Input };

@@ -13,11 +13,11 @@ import { Link } from "react-router-dom";
 
 export function LoginForm({ setEmail, setPassword, handleSubmit }) {
   return (
-    <Card className="w-[40%]">
+    <Card className="w-[30%]">
       <CardHeader>
         <CardTitle className="text-2xl">Login</CardTitle>
         <CardDescription>
-          Enter your email below to login to your account.
+          Sign in with your business email.
         </CardDescription>
       </CardHeader>
       <CardContent className="grid gap-4">
@@ -46,9 +46,13 @@ export function LoginForm({ setEmail, setPassword, handleSubmit }) {
             <Button className="w-full" onClick={handleSubmit}>
             Sign in
             </Button>
-            <Link className="text-[0.8rem] mt-[0.5rem] underline" to="/signup">
+            <p className="text-[0.8rem] mt-[1rem]">
+              Set up your store 
+              <Link className="ml-1 underline" to="/signup">
                 Register here
-            </Link>
+              </Link>
+            </p>
+            
         </div>
       </CardFooter>
     </Card>
