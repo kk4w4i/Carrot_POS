@@ -8,7 +8,7 @@ import {
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export function SignupForm({ setBusinessName, setEmail, setSlug, setPassword, handleSubmit, initialEmail }) {
   return (

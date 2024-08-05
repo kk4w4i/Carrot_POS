@@ -20,7 +20,7 @@ const Hero = () => {
     const navigate = useNavigate()
 
     const validateEmail = (email) => {
-        const regex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/i;
+        const regex = /^[\w-]+@([\w-]+\.)+[\w-]{2,4}$/i;
         return regex.test(email);
     };
 
@@ -44,15 +44,15 @@ const Hero = () => {
         <div className="relative font-custom flex flex-col justify-between items-center w-full overflow-hidden">
             <div className='w-full h-screen'>
                 <div className="flex justify-between w-full px-[40px] py-[20px]">
-                    <img className="h-[2rem] object-cover" src={Logo}/>
+                    <img className="h-[2rem] object-cover" src={Logo} alt="carrot logo"/>
                     <Button onClick={() => navigate("/login")}className="rounded-full px-[25px] drop-shadow-lg shadow-inner shadow-white ">Sign in</Button>
                 </div>
                 <div className='relative flex flex-col justify-center items-center w-full mt-[4rem]'>
-                    <img className="h-[25rem] object-cover" src={StickNote}/>
+                    <img className="h-[25rem] object-cover" src={StickNote} alt="sticky note"/>
                     <h1 className='absolute bottom-[4.3rem] text-[2.7rem] font-medium'>Point of Sales kept simple.</h1>
                     <Input 
                         type="email"
-                        className={`mt-4 rounded-full w-[400px] h-[2.3rem] pl-4 ${shake ? 'shake' : ''}`} 
+                        className={`mt-4 rounded-full w-[400px] h-[2.8rem] pl-4 ${shake ? 'shake' : ''}`} 
                         placeholder="Enter the business email"
                         value={email}
                         onChange={e => setEmail(e.target.value)}
@@ -68,12 +68,12 @@ const Hero = () => {
                 </div>
             </div>
             <div className='flex w-full h-screen overflow-visible relative'>
-                <img className="absolute top-[-26vh] left-[-9vw] h-[550px] object-cover z-[2]" src={BlackPen}/>
-                <img className="absolute top-[-26vh] left-[1vw] h-[860px] object-cover z-[1]" src={Receipt}/>
-                <img className="absolute top-[-21vh] left-[8vw] h-[700px] object-cover z-[2]" src={Carrot}/>
-                <img className="absolute top-[-11vh] left-[47vw] h-[400px] object-cover z-[1]" src={CreditCard}/>
-                <img className="absolute top-[-10vh] left-[63vw] h-[200px] object-cover" src={BarCode}/>
-                <img className="absolute top-[-32vh] left-[68vw] h-[900px] object-cover" src={PosTerminal}/>
+                <img className="absolute top-[-26vh] left-[-9vw] h-[550px] object-cover z-[2]" src={BlackPen} alt="black pen"/>
+                <img className="absolute top-[-26vh] left-[1vw] h-[860px] object-cover z-[1]" src={Receipt} alt="receipt"/>
+                <img className="absolute top-[-21vh] left-[8vw] h-[700px] object-cover z-[2]" src={Carrot} alt="carrot"/>
+                <img className="absolute top-[-11vh] left-[47vw] h-[400px] object-cover z-[1]" src={CreditCard} alt="credit card"/>
+                <img className="absolute top-[-10vh] left-[63vw] h-[200px] object-cover" src={BarCode} alt="bar code"/>
+                <img className="absolute top-[-32vh] left-[68vw] h-[900px] object-cover" src={PosTerminal} alt="pos terminal"/>
             </div>
         </div>
     )
